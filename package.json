@@ -1,0 +1,21 @@
+{
+  "name": "ecocampus",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev:css": "tailwindcss -i public/styles.css -o public/tailwind.css --watch",
+    "build": "rm -rf dist && mkdir -p dist && cp -R public/. dist/ && tailwindcss -i public/styles.css -o dist/tailwind.css --minify && rm -f dist/styles.css",
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "mysql2": "3.24.6"
+  },
+  "type": "module"
+}

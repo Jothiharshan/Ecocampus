@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#17864d" />
+    <meta name="description" content="EcoCampus is a shared, database-backed campus energy prototype with simulated room readings, transparent rule-based waste alerts, layout tools, analytics, controls, and reports." />
+    <title>EcoCampus — Smart Campus Energy</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/tailwind.css?v=6" />
+    <script type="module" src="/app.js?v=7"></script>
+  </head>
+  <body class="min-h-screen bg-eco-canvas font-sans text-eco-ink antialiased">
+    <header class="site-header sticky top-0 z-20 flex items-center text-white">
+      <a class="brand" href="#home" data-page="home" aria-label="EcoCampus home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="M18 31V17" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M18 21C8.7 21 5.4 15.7 5.4 7.2c7.9 0 13 3.5 12.6 13.8Z" fill="currentColor"/><path d="M18 17.3C18 9.8 22.5 5 30.6 5c.2 8.2-3.8 12.8-12.6 12.3Z" fill="currentColor" opacity=".55"/><path d="M10.2 27.5h15.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        <span>EcoCampus</span>
+      </a>
+      <button type="button" class="mobile-nav-toggle" data-action="toggle-nav" aria-controls="primary-nav" aria-expanded="false"><span class="menu-glyph" aria-hidden="true">☰</span><span>Menu</span></button>
+      <nav class="primary-nav flex items-center justify-center" id="primary-nav" aria-label="Primary navigation">
+        <button type="button" class="nav-link active" data-page="home" aria-current="page">Home</button>
+        <button type="button" class="nav-link" data-page="dashboard">Dashboard</button>
+        <button type="button" class="nav-link" data-page="layout">Campus Layout</button>
+        <button type="button" class="nav-link" data-page="analytics">Analytics</button>
+        <button type="button" class="nav-link" data-page="control">Smart Control</button>
+        <button type="button" class="nav-link" data-page="reports">Reports</button>
+        <button type="button" class="nav-link nav-business-link" data-page="business">Business Model</button>
+      </nav>
+      <div class="header-right">
+        <div class="database-indicator"><span id="db-status" data-phase="loading" role="status" aria-live="polite">Connecting to database…</span><button id="db-retry" type="button" data-action="retry-database" hidden>Retry</button></div>
+        <span class="demo-chip"><span class="pulse-dot"></span> SIMULATED DEMO</span>
+        <button type="button" class="business-link" data-page="business">Business Model <span aria-hidden="true">↗</span></button>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content mx-auto w-full" tabindex="-1"></main>
+
+    <footer class="site-footer flex items-center justify-between gap-5 border-t bg-white px-4 py-3">
+      <div><strong>EcoCampus</strong><span>Transparent campus energy management</span></div>
+      <p>Shared demo database · no login; anyone who can open this app can edit/reset data · simulated readings only · no connected sensors/equipment · rule-based detection, not AI</p>
+      <button type="button" class="footer-reset" data-action="reset-demo">Reset shared demo data</button>
+    </footer>
+    <div id="modal-root"></div>
+    <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
